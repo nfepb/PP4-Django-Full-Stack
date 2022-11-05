@@ -1,10 +1,112 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome nfepb,
+## **Introduction**
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Welcome to WatchIt!,
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+WatchiIt is my fourth portfolio project that I have been working on in the Full Stack Developer Programme, as a student of the Code Institute. 
+
+---
+
+## **Strategy Pane**
+
+### **App Creator's Goals**
+
+### User Stories
+
+To help in defining the most important benefits of the app and the features required to deliver this value, I created a flowchat that goes through the different stages of the app user. It starts with the visitor (as the user), and evolves into a connected user, which is also identified as a regular user. 
+
+[User Flowchart](planning-docs/user-stories/images/user-flowchart.png)
+
+#### **Admin User Stories**
+
+#### **Site User Stories**
+
+#### **Logged-In User Stories**
+
+My user stories were obtained by doing research into other apps/websites and analyzing how the user was accompanied through their journey. The [IMDb](https://www.imdb.com/) and [AlloCiné](https://www.allocine.fr/) helped me define what were some of the critical features to get to a MVP, and which features were considered 'nice to have' for later development. 
+
+---
+
+## **The Scope Plane**
+
+Too many ideas, not enought time. Too much ambition for the defined deadline. This is the reason why. opted for a phased approach to help digest and define what I would work on in an initial deployment, and what would come in the later stage. 
+
+**Phase 1**
+- Define the critical features to satisfy the user stories:
+    - A Home Page with an introduction,
+    - A Navigation Bar accessible on all pages,
+    - A Catalogue Page to view all the movies referenced,
+    - A Movie Detail Page.
+
+---
+
+## **Structure Plane**
+
+### **Color Palette**
+
+### **Fonts**
+
+### **Images**
+
+### **Database Design**
+
+#### **Key Models**
+
+**UserAccount**
+
+**Movie**
+
+**MovieComment**
+
+**WatchList**
+
+---
+
+## **The Skeleton Plane**
+
+---
+
+## **The Surface Plane**
+
+### **Features**
+
+---
+
+## **Technologies Used**
+
+---
+
+## **Testing**
+
+---
+
+## **Deployment**
+
+The master branch of this repository is the most current version and has been used for the deployed version of the site.
+
+The Code Institute student template was used to create this project.
+
+[Code Institute Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
+
+- Click the *Use This Template* button.
+- Give your repository a name, and description if you wish.
+- Click the *Create Repository from Template* to create your repository. 
+- Click the *Gitpod* button to create a gitpod workspace, this can take a few minutes.
+- When working on project using Gitpod, please open the workspace from Gitpod, this will open your previous workspace rather than creating a new one.
+Use the following commands to commit your work, 
+- `git add . ` - adds all modified files to a staging area.
+- `git commit -m "A short message exlaining your commit"` - commits all changes to a local repository.
+- `git push` - pushes all your commited changes to your Github repository.
+
+**Requirements**
+
+- [Python 3](https://www.python.org/downloads/)
+- [Pip](https://pypi.org/project/pip/)
+- [Git](https://git-scm.com/)
+- [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+
+---
 
 ## Gitpod Reminders
 
@@ -33,6 +135,10 @@ To log into the Heroku toolbelt CLI:
 5. Paste in your API key when asked
 
 You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+
+---
+
+## **Credits**
 
 ------
 
