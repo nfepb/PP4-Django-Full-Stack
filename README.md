@@ -6,9 +6,30 @@ Welcome to WatchIt!,
 
 WatchiIt is my fourth portfolio project that I have been working on in the Full Stack Developer Programme, as a student of the Code Institute. 
 
+The purpose of this project was a build a full-stack website based around a business logic used to control a centrally-owned dataset. The technologies used for this project are HTML, CSS, Python, and Django. Heroku Postgres is used as a relational database.
+
+WatchIt! is a website where anyone that enjoys watching a movie can look up movies they think is interesting to see what other website's user think of the said movie and how they grade it. WatchIt! also allows logged in users to add movies to their watchlist and add reviews on movies they have watched. 
+
+WhatchIt! is a fictional brand. This project is for educational purposes only.
 ---
 
-## **Strategy Pane**
+## **User Experience Design - UXD** 
+
+A large part of the inspiration behind the planning for this project came from Jason James Garretts’s, “The Elements of User-Experience”.
+
+By keeping the user in mind throughout the design and development of the project, it would be easier to make the user experience a satisfying and cohesive.
+
+The planning of the project is broken into 5 planes,
+
+* [The Strategy Plane](#the-strategy-pane)
+* [The Scope Plane](#the-scope-plane)
+* [The Structure Plane](#the-structure-plane)
+* [The Skeleton Plane](#the-skeleton-plane)
+* [The Surface Plane](#the-surface-plane)
+
+---
+
+## **The Strategy Pane**
 
 ### **App Creator's Goals**
 
@@ -30,18 +51,29 @@ My user stories were obtained by doing research into other apps/websites and ana
 
 ## **The Scope Plane**
 
+In order to achieve the desired user & business goals, the following features will be included in this release:
+
+* Responsive navbar that will navigate to the various pages throughout the site
+* Home landing page with brief information about the movie review platform and links to the movie page 
+    * Movie page, with the latest posted movie content 
+    * Movie detail page, where logged-in users can post a review of the movie and grade it based on their experience watching it. 
+* Movie page, with a booking form to enquire with the cycling gym
+* Watchlist page, where logged-in users can add/remove movies from the list
+* Register/login feature using Django allauth
+
 Too many ideas, not enought time. Too much ambition for the defined deadline. This is the reason why. opted for a phased approach to help digest and define what I would work on in an initial deployment, and what would come in the later stage. 
 
 **Phase 1**
 - Define the critical features to satisfy the user stories:
     - A Home Page with an introduction,
     - A Navigation Bar accessible on all pages,
-    - A Catalogue Page to view all the movies referenced,
+    - A 'Catalogue' Page to view all the movies referenced,
     - A Movie Detail Page.
+    - A watchlist page
 
 ---
 
-## **Structure Plane**
+## **The Structure Plane**
 
 ### **Color Palette**
 
@@ -51,19 +83,49 @@ Too many ideas, not enought time. Too much ambition for the defined deadline. Th
 
 ### **Database Design**
 
+SQLite was used throughout the development of the WatchIt! app. During deployment to a production environment, Heroku PostgreSQL was used.
+
+In order to support the functionalities defined in the user stories for each Epic, mapping the architecture became crucial. This helped foresee how we could get to an MVP.
+
 #### **Key Models**
 
-**UserAccount**
+[Database Diagram](documentation/schema/database-architecture.png)
+
+**User**
+
+* The User is created based on the User model, which is created by Allauth on registration.
 
 **Movie**
 
-**MovieComment**
+* The Movie holds information about each movie entry in the database. Each product has a unique ID.
+* The Movie model is connected to the WatchlistItem model. This allows the user to add multiple movies to a single watchlist.
+* The movie includes the average_rating, which will hold the logic to calculate the average movie rating based on the reviews of the movie.  
 
-**WatchList**
+**Review**
+
+* Reviews can be posted by the users on the movies with this model
+* The Review model has a one-to-many relationship to the User model to obtain the username. One user can post multiple reviews. 
+* The Review model also is linked to the Movie model based on a one-to-many relationship. This allows one movie to have multiple reviews. 
+
+**WatchListItem**
+
+* The WatchListItem is used to allow the many-to-many relationship between the users and the movies. 
+* One user can have multiple movies in their watchlist through the movie lookup in the Movie model. 
+* One movie can be added to multiple users' watchlist through the user ID in the User model.
 
 ---
 
 ## **The Skeleton Plane**
+
+**Navbar Wireframes**
+
+**Homepage Wireframes**
+
+**Movie Detail Wireframes**
+
+**Register Wireframes**
+
+**Login Wireframes**
 
 ---
 
@@ -74,6 +136,9 @@ Too many ideas, not enought time. Too much ambition for the defined deadline. Th
 ---
 
 ## **Technologies Used**
+
+[dbdiagram](https://dbdiagram.io/home)
+
 
 ---
 
