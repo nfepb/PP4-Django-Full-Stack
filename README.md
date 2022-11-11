@@ -142,6 +142,7 @@ In order to support the functionalities defined in the user stories for each Epi
 | [dbdiagram](https://dbdiagram.io/home) | Used to design the ERD for WatchIt! |
 | [Grammarly](https://www.grammarly.com/) |	Used to fix the grammar errors across the project. |
 | [Canva](https://www.canva.com/)	| Used to create the wireframes for the website for the different supports. |
+| [Coolors](https://coolors.co/) | Used to define the color palette for the website. |
 | [Github](https://github.com/) | Used as the development environment. |
 | [Pep8](https://peps.python.org/pep-0008/)	| Used to test my code for any issues or errors. |
 | [Django](https://www.djangoproject.com/) | Framework used to build the project and its apps. |
