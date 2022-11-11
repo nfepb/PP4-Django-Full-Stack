@@ -137,7 +137,18 @@ In order to support the functionalities defined in the user stories for each Epi
 
 ## **Technologies Used**
 
-[dbdiagram](https://dbdiagram.io/home)
+| Technology | Comment |
+| :---: | --- |
+| [dbdiagram](https://dbdiagram.io/home) | Used to design the ERD for WatchIt! |
+| [Grammarly](https://www.grammarly.com/) |	Used to fix the grammar errors across the project. |
+| [Canva](https://www.canva.com/)	| Used to create the wireframes for the website for the different supports. |
+| [Github](https://github.com/) | Used as the development environment. |
+| [Pep8](https://peps.python.org/pep-0008/)	| Used to test my code for any issues or errors. |
+| [Django](https://www.djangoproject.com/) | Framework used to build the project and its apps. |
+| [Python](https://www.python.org/) | Python is the core programming language used to write all of the code in this application to make it fully functional. |
+| [Heroku](https://dashboard.heroku.com/login) | Used to deploy the WatchIt! application. |
+| [Google Fonts](https://fonts.google.com/) | |
+| [Cloudinary](https://cloudinary.com/) | Used to store all of my static files and images. |
 
 
 ---
