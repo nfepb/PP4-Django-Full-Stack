@@ -37,7 +37,7 @@ The planning of the project is broken into 5 planes,
 
 To help in defining the most important benefits of the app and the features required to deliver this value, I created a flowchat that goes through the different stages of the app user. It starts with the visitor (as the user), and evolves into a connected user, which is also identified as a regular user. 
 
-[User Flowchart](planning-docs/user-stories/images/user-flowchart.png)
+[User Flowchart](./planning-docs/user-stories/images/user-flowchart.png)
 
 #### **Admin User Stories**
 
@@ -75,7 +75,7 @@ Too many ideas, not enought time. Too much ambition for the defined deadline. Th
 
 ## **The Structure Plane**
 
-### **Color Palette**
+### **Color Palette**
 
 ### **Fonts**
 
@@ -89,7 +89,7 @@ In order to support the functionalities defined in the user stories for each Epi
 
 #### **Key Models**
 
-[Database Diagram](documentation/schema/database-architecture.png)
+[Database Diagram](./documentation/schema/database-architecture.png)
 
 **User**
 
