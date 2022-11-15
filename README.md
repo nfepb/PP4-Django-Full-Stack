@@ -183,6 +183,10 @@ Use the following commands to commit your work,
 - [Git](https://git-scm.com/)
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/)
 
+## Credits
+
+[Willem Van Onsem](https://stackoverflow.com/users/67579/willem-van-onsem) for his answer in Stackoverflow for [How to make an average from values of a foreign key in Django?](https://stackoverflow.com/questions/59479908/how-to-make-an-average-from-values-of-a-foreign-key-in-django)
+
 ---
 
 ## Gitpod Reminders
