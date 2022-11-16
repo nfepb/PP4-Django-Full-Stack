@@ -9,7 +9,9 @@ class Movie(models.Model):
     Movie Class model
     """
     movie_title = models.CharField(max_length=200, unique=True)
-    category = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)
+    movie_genre = models.ForeignKey(
+        'Genre', on_delete=models.SET_NULL, null=True
+        )
     directors = models.CharField(max_length=200)
     year_released = models.DateField()
     synopsis = models.TextField()
@@ -78,7 +80,7 @@ class WatchlistItem(models.Model):
         ordering = ['-added_on']
 
     def __str__(self):
-        return f"Review by {self.author}: {self.content} - rating:{self.review_rating}"
+        return f"Added {self.watchlistItem_movie} to list of {self.watchlistItem_user}"
 
 
 class Genre(models.Model):
