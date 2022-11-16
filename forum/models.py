@@ -9,8 +9,8 @@ class Movie(models.Model):
     Movie Class model
     """
     movie_title = models.CharField(max_length=200, unique=True)
-    category = models.CharField()
-    directors = models.CharField()
+    category = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)
+    directors = models.CharField(max_length=200)
     year_released = models.DateField()
     synopsis = models.TextField()
     movie_poster = CloudinaryField('image', default='placeholder')
@@ -28,11 +28,12 @@ class Movie(models.Model):
     def __str__(self):
         return self.movie_title
 
-    def average_rating(self):
-        return self.reviews.aggregate(avg_score=Avg('score'))['avg_score']
 
-
-RATING = ((0, "Not to prioritise"), (1, "Nice to watch"), (2, "Must watch"))
+RATING = (
+    (0, "Not to prioritise"),
+    (1, "Entertaining"),
+    (2, "Must watch")
+    )
 
 
 class Review(models.Model):
@@ -43,7 +44,8 @@ class Review(models.Model):
         Movie, on_delete=models.CASCADE, related_name="movie_reviews"
         )
     author = models.ForeignKey(
-        User, on_delete=models.SET_NULL, related_name="review_author"
+        User, on_delete=models.SET_NULL, null=True,
+        related_name="review_author"
         )
     content = models.TextField()
     review_rating = models.IntegerField(choices=RATING, default=1)
@@ -77,3 +79,13 @@ class WatchlistItem(models.Model):
 
     def __str__(self):
         return f"Review by {self.author}: {self.content} - rating:{self.review_rating}"
+
+
+class Genre(models.Model):
+    """
+    Genre Class Model
+    """
+    genre_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.genre_name
