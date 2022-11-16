@@ -8,15 +8,18 @@ class PostAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('content')
 
+
 @admin.register(Review)
 class PostAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('content')
 
+
 @admin.register(WatchlistItem)
 class PostAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('content')
+
 
 @admin.register(Genre)
 class PostAdmin(SummernoteModelAdmin):
