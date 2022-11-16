@@ -9,7 +9,6 @@ class Movie(models.Model):
     Movie Class model
     """
     movie_title = models.CharField(max_length=200, unique=True)
-    movie_slug = models.SlugField(max_length=250, unique=True)
     category = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)
     directors = models.CharField(max_length=200)
     year_released = models.DateField()
