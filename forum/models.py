@@ -64,6 +64,10 @@ class Review(models.Model):
         return f"Review by {self.author}: {self.content} - rating:{self.review_rating}"
 
 
+STATUS = (
+    (0, "Not yet watched"),
+    (1, "Watched")
+)
 class WatchlistItem(models.Model):
     """
     WatchlistItem Class model
@@ -74,6 +78,7 @@ class WatchlistItem(models.Model):
     watchlistItem_user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_watchlist"
         )
+    movie_status = models.IntegerField(choices=STATUS, default=0)
     added_on = models.DateField(auto_now_add=True)
 
     class Meta:
