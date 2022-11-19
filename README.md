@@ -156,6 +156,19 @@ In order to support the functionalities defined in the user stories for each Epi
 
 ## **Testing**
 
+## ** Issues encountered**
+
+### Navbar
+
+Bootstrap was not allowing the items to be centered. What were looking to do:
+- Have the search bar centered at the top of the navbar on larger screens
+- Have the other navigation items displayed inline underneath the search function
+
+Instead, all the items were displayed on the 2 lines (as wanted), but on the right hand side of the screen. 
+
+### Footer
+Footer did not allow to center the content.
+
 ---
 
 ## **Deployment**

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,21 +25,140 @@
       referrerpolicy="no-referrer"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Import Bootstrap 5.2.2 CSS & Script-->
+    <!-- Import Bootstrap 5.2.2 CSS -->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
-      integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g=="
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
-      integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link rel="stylesheet" href="{& static 'css/style.css' %}" />
+
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-  <body></body>
+
+  <body class="container-fluid d-flex flex-column">
+    <!-- Navigation bar -->
+
+    <nav class="navbar navbar-expand-lg bg-light">
+      <a class="navbar-brand" href="{% url 'home' %}"
+        ><span>Watch</span><span>It!</span></a
+      >
+      <div class="align-items-center justify-content-center mb-3">
+        <div class="flex-row text-center">
+          <form class="d-inline-flex col-10" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="flex">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  ><i class="fa-solid menu-icon fa-film"></i>Movies</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><i class="fa-solid fa-fire"></i>Trending</a
+                >
+              </li>
+              <!-- Navbar links to display based on user type (auth or not) -->
+              {% if user.is_authentificated %}
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><i class="fa-duotone fa-bookmark"></i>My Watchlist</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><i class="fa-solid fa-right-from-bracket"></i>Logout</a
+                >
+              </li>
+              {% else %}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  ><i class="fa-solid fa-user"></i>Login/Register
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Login</a></li>
+                  <li><a class="dropdown-item" href="#">Register</a></li>
+                </ul>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}{% endblock content %}
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center">
+      <div class="container-fluid p-6">
+        <div class="col align-self-center">
+          <ul class="list-inline">
+            <li class="list-inline-item social-link">
+              <a href="https://github.com/nfepb" target="_blank">
+                <i
+                  class="fa-brands fa-3x fa-square-github"
+                  aria-hidden="true"
+                ></i>
+                <span class="sr-only">Github</span>
+              </a>
+            </li>
+            <li class="list-inline-item social-link">
+              <a
+                href="https://www.linkedin.com/in/nicolas-plante-bordeneuve/"
+                target="_blank"
+              >
+                <i class="fa-brands fa-3x fa-linkedin" aria-hidden="true"></i>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+            </li>
+          </ul>
+          <small class="copyright-text">
+            &copy; Copyright 2022. Nicolas Planté-Bordeneuve.
+          </small>
+          <small class="copyright-text">
+            This project is made for educational purposes only. No commercial
+            revenue is generated from the project.
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

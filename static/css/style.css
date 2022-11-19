@@ -1,0 +1,49 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background-color: black;
+    color: #ede7d9;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+/* -----Colors for CSS -----*/
+
+.main-bg {
+    background-color: black;
+}
+
+/* ----- Navbar-----*/
+
+.navbar {
+    justify-content: center;
+}
+
+.dropdown-menu {
+    background-color: black;
+}
+
+.nav-link:hover {
+    color: #bd1e1e;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+}
+
+/* ----- Footer -----*/
+
+.footer {
+    justify-content: center;
+}
+
+.social-link {
+    color: #ede7d9;
+    margin-top: 2rem;
+}
