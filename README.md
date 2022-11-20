@@ -150,6 +150,8 @@ In order to support the functionalities defined in the user stories for each Epi
 | [Heroku](https://dashboard.heroku.com/login) | Used to deploy the WatchIt! application. |
 | [Google Fonts](https://fonts.google.com/) | |
 | [Cloudinary](https://cloudinary.com/) | Used to store all of my static files and images. |
+| [jQuery](https://jquery.com/) | jQuery is required in order to use the Owl Carousel components. |
+| [Owl Carousel] | Used to display the movies and genres in a carousel. |
 
 
 ---
@@ -199,6 +201,7 @@ Use the following commands to commit your work,
 ## Credits
 
 [Willem Van Onsem](https://stackoverflow.com/users/67579/willem-van-onsem) for his answer in Stackoverflow for [How to make an average from values of a foreign key in Django?](https://stackoverflow.com/questions/59479908/how-to-make-an-average-from-values-of-a-foreign-key-in-django)
+[Racool_studio](https://www.freepik.com/free-photo/delicious-popcorn_6543855.htm#query=pile%20movies&position=28&from_view=search&track=sph) for the image used in the hero image. 
 
 ---
 

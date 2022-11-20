@@ -1,14 +1,43 @@
 <!-- prettier-ignore -->
-{% extends "base.html" %} 
-{% block title %} Home {% endblock %} 
-{% load static %} {% block content %}
+{% extends "base.html" %} {% load static %}
+{% block title %} <title>WatchIt!</title> {% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
 
-<div class="container-fluid">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-7 col-lg-6 text-center">
-      <h1 class="text-uppercase pt-5 font-weight-bold">WatchIt!</h1>
-      <p>HELLO WORLD!</p>
+<section id="hero-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div
+        class="flex-column col-12 col-md-7 col-lg-6 align-items-center text-center"
+      >
+        <img
+          class="hero-image"
+          src="https://res.cloudinary.com/dknv0nxqz/image/upload/v1668944494/watchit/static/images/hero-image-watchit_euj5ql.png"
+          alt="Image of 3D Glasses on pop corn"
+        />
+      </div>
+      <div
+        class="row flex-column col-12 col-md-7 col-lg-6 align-items-center justify-content-center text-center"
+      >
+        <h1 class="pt-5 pb-3">WatchIt!</h1>
+        <h2>Review your favorite movies and find your next one to watch!</h2>
+        <h3>Discover new horizons in the 7th Art</h3>
+        {% if user.is_authentificated %}
+        <h3>Welcome {{ user }}</h3>
+        <a class="btn btn-hero btn-secondary" href="#">My watchlist</a>
+        {% else %}
+        <div class="d-inline pt-3 pb-3">
+          <a class="btn btn-hero btn-primary" href="#">Login</a>
+          <a class="btn btn-hero btn-outline-warning" href="#">Sign Up</a>
+        </div>
+        {% endif %}
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- Movie carousel section  -->
+<section id="carousel-section">
+  <h2 class="text-center">Newly added movies</h2>
+</section>
 {% endblock %}
