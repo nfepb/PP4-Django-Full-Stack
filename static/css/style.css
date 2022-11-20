@@ -54,6 +54,7 @@ body {
 }
 
 /* ----- Index page -----*/
+
 /* Hero section */
 #hero-section {
     padding: 5.6rem;
@@ -69,15 +70,43 @@ body {
 }
 
 /* Carousel section */
-
 #carousel-section {
     padding: 5.6rem 0;
+}
+
+.owl-movie-listing {
+    height: 25vw;
+}
+
+.movie-image {
+    width: 400px;
+}
+
+/* Genre Section */
+#genres-section {
+    padding: 5.6rem 0;
+}
+
+.genre-card {
+    margin: 0 2px;
+    --bs-card-inner-border-radius: 0;
+    border-radius: 0;
+    border: none;
+}
+
+.genre-card-title {
+    height: 3.2rem;
 }
 
 /* ----- Footer -----*/
 
 .footer {
     justify-content: center;
+}
+
+.genre-card-img {
+    height: 5rem;
+    object-fit: cover;
 }
 
 .footer-icon-container {
@@ -90,4 +119,19 @@ body {
 
 .white-icon:hover {
     opacity: 0.8;
+}
+
+/* Media  */
+@media screen and (min-width: 300px) {
+    .owl-book-listing {
+        width: 100%;
+        height: 36vw;
+        object-fit: cover;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .owl-movie-listing {
+        height: 18vw;
+    }
 }

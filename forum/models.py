@@ -68,6 +68,8 @@ STATUS = (
     (0, "Not yet watched"),
     (1, "Watched")
 )
+
+
 class WatchlistItem(models.Model):
     """
     WatchlistItem Class model

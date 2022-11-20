@@ -39,5 +39,72 @@
 <!-- Movie carousel section  -->
 <section id="carousel-section">
   <h2 class="text-center">Newly added movies</h2>
+  <!-- Owl Carousel https://owlcarousel2.github.io/OwlCarousel2/ -->
+  <div class="owl-carousel owl-theme">
+    {% for movie in MovieList %}
+    <div class="item">
+      <div class="card h-100 card-home border-0">
+        <div class="card-body movie-listing-body">
+          <a href="{% url 'movie_detail' movie.slug %}">
+            <img
+              class="card-img-top owl-movie-listing"
+              src=" {{ movie.movie_poster.url }}"
+              alt="{{ movie.title }} by {{ movie.year_released }} movie listing"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </section>
+<!-- Genre Section -->
+<section id="genres-section">
+  <h3 class="text-center page-subtitle">Discover by genre</h3>
+  <!--Owl Carousel https://owlcarousel2.github.io/OwlCarousel2/-->
+  <div class="owl-carousel owl-theme">
+    {% for genre in genre_list %}
+    <div class="item">
+      <div class="card h-100 genre-card">
+        <div class="card-body p-0">
+          <a href="{% url 'genre_name' genre.slug %}">
+            <div
+              class="p-0 card-header genre-card-title d-flex align-items-center justify-content-center"
+            >
+              <h4 class="m-0 f-medium p-bold card-title text-center">
+                {{ genre.genre_name }}
+              </h4>
+            </div>
+            <img
+              class="card-img genre-card-img"
+              src=" {{ genre.genre_image.url }} "
+              alt="image associated with {{ genre.genre.name }}"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %} {% block script %}
+<!-- Owl Carousel script with settings from https://owlcarousel2.github.io/OwlCarousel2/demos/basic.html-->
+<script>
+  $(".owl-carousel").owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 4,
+      },
+      1000: {
+        items: 8,
+      },
+    },
+  });
+</script>
 {% endblock %}
