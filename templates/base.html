@@ -37,15 +37,16 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
 
-  <body class="container-fluid d-flex flex-column">
+  <body>
     <!-- Navigation bar -->
 
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark red-bg">
       <a class="navbar-brand" href="{% url 'home' %}"
         ><span>Watch</span><span>It!</span></a
       >
+      <!-- Search functionality in Navbar -->
       <div class="align-items-center justify-content-center mb-3">
-        <div class="flex-row text-center">
+        <div class="text-center">
           <form class="d-inline-flex col-10" role="search">
             <input
               class="form-control me-2"
@@ -117,39 +118,45 @@
       </div>
     </nav>
 
+    <!-- Page content comes here -->
     {% block content %}{% endblock content %}
 
     <!-- Footer -->
-    <footer class="bg-dark text-center">
+    <footer class="red-bg text-center mt-auto">
       <div class="container-fluid p-6">
         <div class="col align-self-center">
-          <ul class="list-inline">
-            <li class="list-inline-item social-link">
-              <a href="https://github.com/nfepb" target="_blank">
-                <i
-                  class="fa-brands fa-3x fa-square-github"
-                  aria-hidden="true"
-                ></i>
-                <span class="sr-only">Github</span>
-              </a>
-            </li>
-            <li class="list-inline-item social-link">
-              <a
-                href="https://www.linkedin.com/in/nicolas-plante-bordeneuve/"
-                target="_blank"
-              >
-                <i class="fa-brands fa-3x fa-linkedin" aria-hidden="true"></i>
-                <span class="sr-only">LinkedIn</span>
-              </a>
-            </li>
-          </ul>
-          <small class="copyright-text">
+          <div class="footer-icon-container">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="https://github.com/nfepb" target="_blank">
+                  <i
+                    class="fa-brands fa-3x fa-square-github white-icon"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="sr-only">Github</span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a
+                  href="https://www.linkedin.com/in/nicolas-plante-bordeneuve/"
+                  target="_blank"
+                >
+                  <i
+                    class="fa-brands fa-3x fa-linkedin white-icon"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="sr-only">LinkedIn</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="copyright-text">
             &copy; Copyright 2022. Nicolas Planté-Bordeneuve.
-          </small>
-          <small class="copyright-text">
+          </div>
+          <div class="copyright-text">
             This project is made for educational purposes only. No commercial
             revenue is generated from the project.
-          </small>
+          </div>
         </div>
       </div>
     </footer>
@@ -160,5 +167,7 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
+    <!-- Additional page scripts are added here -->
+    {% block script %}{% endblock %}
   </body>
 </html>

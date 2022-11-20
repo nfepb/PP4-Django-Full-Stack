@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&family=Poppins:wght@300;400;700&display=swap');
+
+
+
 html {
     height: 100%;
 }
@@ -5,7 +9,10 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    background-color: black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--black);
     color: #ede7d9;
 }
 
@@ -15,8 +22,16 @@ body {
 
 /* -----Colors for CSS -----*/
 
-.main-bg {
-    background-color: black;
+:root {
+    --black: #000000;
+    --carnelian: #bd1e1e;
+    --alabaster: #ede7d9;
+    --blackCoral: #5e6973;
+    --fulvous: #d98324;
+}
+
+.red-bg {
+    background-color: var(--carnelian);
 }
 
 /* ----- Navbar-----*/
@@ -26,11 +41,12 @@ body {
 }
 
 .dropdown-menu {
-    background-color: black;
+    background-color: var(--carnelian);
+    color: var(--alabaster);
 }
 
 .nav-link:hover {
-    color: #bd1e1e;
+    color: var(--alabaster);
 }
 
 .nav-item {
@@ -43,7 +59,14 @@ body {
     justify-content: center;
 }
 
-.social-link {
-    color: #ede7d9;
-    margin-top: 2rem;
+.footer-icon-container {
+    padding-top: 2rem;
+}
+
+.white-icon {
+    color: var(--alabaster);
+}
+
+.white-icon:hover {
+    opacity: 0.8;
 }
