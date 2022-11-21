@@ -146,9 +146,10 @@ In order to support the functionalities defined in the user stories for each Epi
 | [Github](https://github.com/) | Used as the development environment. |
 | [Pep8](https://peps.python.org/pep-0008/)	| Used to test my code for any issues or errors. |
 | [Django](https://www.djangoproject.com/) | Framework used to build the project and its apps. |
+| [Django Star Ratings](https://django-star-ratings.readthedocs.io/en/latest/) | |
 | [Python](https://www.python.org/) | Python is the core programming language used to write all of the code in this application to make it fully functional. |
 | [Heroku](https://dashboard.heroku.com/login) | Used to deploy the WatchIt! application. |
-| [Google Fonts](https://fonts.google.com/) | |
+| [Google Fonts](https://fonts.google.com/) | Used to add the ratings on the movies through the Djanog model. |
 | [Cloudinary](https://cloudinary.com/) | Used to store all of my static files and images. |
 | [jQuery](https://jquery.com/) | jQuery is required in order to use the Owl Carousel components. |
 | [Owl Carousel] | Used to display the movies and genres in a carousel. |
@@ -168,8 +169,15 @@ Bootstrap was not allowing the items to be centered. What were looking to do:
 
 Instead, all the items were displayed on the 2 lines (as wanted), but on the right hand side of the screen. 
 
+### Index page
+On Screens size > 900px, content is aligning on the left, no longer on the center of the page.
+
 ### Footer
 Footer did not allow to center the content.
+
+### Migration Error due to added slug fields
+django.db.utils.IntegrityError: could not create unique index "forum_genre_slug_key"
+DETAIL:  Key (slug)=(2022-11-21 19:25:15.303241+00:00) is duplicated.
 
 ---
 

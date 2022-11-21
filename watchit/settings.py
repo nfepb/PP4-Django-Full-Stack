@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
+    'star_ratings',
     'django_summernote',
     'cloudinary',
     'forum',

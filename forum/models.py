@@ -9,15 +9,21 @@ class Movie(models.Model):
     Movie Class model
     """
     movie_title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, null=False, unique=True)
     movie_genre = models.ForeignKey(
-        'Genre', on_delete=models.SET_NULL, null=True
+        'Genre', on_delete=models.PROTECT, related_name='movie_genre'
         )
-    directors = models.CharField(max_length=200)
+    director = models.CharField(max_length=200)
     year_released = models.DateField()
     synopsis = models.TextField()
     movie_poster = CloudinaryField('image', default='placeholder')
     movie_created_on = models.DateTimeField(auto_now_add=True)
     movie_updated_on = models.DateTimeField(auto_now=True)
+    in_watchlists = models.ManyToManyField(
+        User,
+        related_name='in_watchlists',
+        blank=True
+    )
 
     class Meta:
         """
@@ -95,6 +101,8 @@ class Genre(models.Model):
     Genre Class Model
     """
     genre_name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, null=False, unique=True)
+    genre_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):
         return self.genre_name

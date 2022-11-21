@@ -65,6 +65,24 @@ body {
     height: auto;
 }
 
+.main-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 5.6rem;
+    font-weight: 700;
+}
+
+.secundary-title {
+    font-size: 2.4rem;
+    font-weight: 400;
+}
+
+.third-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    padding: 2.5rem;
+    color: var(--blackCoral);
+}
+
 .btn-hero {
     width: 150px;
 }

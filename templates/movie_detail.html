@@ -1,0 +1,117 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} {% load static %}
+{% block title %} <title>{{ movie.movie_title }}!</title> {% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+
+<section>
+  <!-- Header part of the movie detail -->
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div
+        class="col-auto mt-3 col-md-3 d-flex justify-content-md-end justify-content-lg-center"
+      >
+        <img
+          class="card-img-top book-detail-image"
+          src=" {{ movie.movie_poster.url }}"
+          alt="{{ movie.movie_title }} by {{ movie.director }} movie details"
+        />
+      </div>
+      <div class="col-auto p-0 mt-3 col-md-6">
+        <div class="row align-items-center">
+          <div class="col-12 p-0">
+            <h1 class="text-center text-md-start">{{ movie.movie_title }}</h1>
+          </div>
+          <div class="p-0 col-12">
+            <h2 class="p-bold text-center text-md-start">
+              by {{ movie.director }}
+            </h2>
+          </div>
+          <div class="row justify-content-center justify-content-md-start mt-3">
+            <div
+              class="p-0 col-12 mb-3 mb-md-5 d-flex justify-content-center justify-content-md-start col-md-5 col-lg-3"
+            >
+              <!--https://django-star-ratings.readthedocs.io/en/latest/?badge=latest/#-->
+              {% ratings movie %}
+            </div>
+            <div class="p-0 col-4 col-lg-3 d-flex justify-content-center">
+              <a href="#reviews" class="btn btn-styles review-btn">Review</a>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="p-0 col-3 mt-2">
+              <div
+                class="d-flex justify-content-center justify-content-md-start"
+              >
+                <form
+                  class="d-inline"
+                  action="{% url 'watchlist_movie' movie.slug %}"
+                  method="POST"
+                >
+                  {% csrf_token %} {% if favourite %}
+                  <span class="text-secondary"
+                    >{{ movie.count_in_watchlists }}
+                  </span>
+                  <button
+                    type="submit"
+                    name="movie_id"
+                    value="{{movie.slug}}"
+                    class="btn-like"
+                  >
+                    <i class="fa-solid fa-bookmark"></i>
+                  </button>
+                  {% else %}
+                  <span class="text-secondary">{{ movie.in_watchlists }} </span>
+                  <button
+                    type="submit"
+                    name="movie_id"
+                    value="{{movie.slug}}"
+                    class="btn-like"
+                  >
+                    <i class="fa-regular fa-bookmark"></i>
+                  </button>
+                  {% endif %}
+                </form>
+              </div>
+            </div>
+            {% else %}
+            <div class="p-0 col-md-3 col-12 mt-4 mt-md-2">
+              <div class="row">
+                <div class="col p-0 d-flex justify-content-center">
+                  <span class="text-center p-bold"
+                    >{{ movie.in_watchlists }}
+                    <i class="fa-regular fa-bookmark"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col p-0 d-flex justify-content-center p-0">
+                  <span class="p-bold text-center f-small"
+                    ><a class="f-small" href="{% url 'account_login' %}"
+                      >Log In</a
+                    >
+                    or
+                    <a class="f-small" href="{% url 'account_signup' %}"
+                      >Sign Up</a
+                    >
+                    to add to Watchlist</span
+                  >
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="row justify-content-center">
+      <div class="col col-md-8">
+        <h3 class="h3-styles">Blurb</h3>
+        {{ movie.synopsis | linebreaks }}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
