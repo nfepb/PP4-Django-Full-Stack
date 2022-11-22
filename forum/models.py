@@ -56,6 +56,7 @@ class Review(models.Model):
         related_name="review_author"
         )
     content = models.TextField()
+    movie_approved = models.BooleanField(default=False)
     review_rating = models.IntegerField(choices=RATING, default=1)
     review_created_on = models.DateTimeField(auto_now_add=True)
     review_updated_on = models.DateTimeField(auto_now=True)

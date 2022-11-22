@@ -1,0 +1,151 @@
+{% extends "base.html" %} {% load static %}{% block title %}
+<title>{{ genres }} Genre</title>
+{% endblock %} {% block content %}{% load ratings %}
+
+<section class="pb-5 pt-5">
+  <div class="row justify-content-center">
+    <div class="col col-sm-10">
+      <h1 class="page-title mt-5 mb-5">{{ genres }}</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Movie Listing for specific Genres -->
+          <div class="col-12">
+            <div class="row">
+              {% for movie in movies %} {% if movie.movie_genre == genres %}
+              <div class="col-12 col-md-4 col-lg-3 mb-3 mb-md-5">
+                <a href="{% url 'movie_detail' movie.slug %}">
+                  <div class="card h-100 book-card">
+                    <div class="card-header">
+                      <h2 class="mt-2 f-small p-bold">
+                        {{ movie.title }}
+                        <span class="irresistable f-small p-bold"
+                          >by {{ movie.director }}</span
+                        >
+                      </h2>
+                      <!--https://django-star-ratings.readthedocs.io/en/latest/?badge=latest/#-->
+                      <div class="star">
+                        {% ratings movie 12 12 read_only %}
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4 d-flex align-items-center p-0">
+                        <div class="card-body p-0">
+                          {% if "placeholder" in movie.movie_poster.url %}
+                          <img
+                            class="card-img-top image-listing"
+                            src="https://res.cloudinary.com/ddhmc5wvm/image/upload/v1661075789/book-nook/images/bookworm-3.png"
+                            alt="{{ movie.title }} by {{ movie.director }} movie listing with no poster"
+                          />
+                          {% else %}
+                          <img
+                            class="card-img-top image-listing"
+                            src=" {{ movie.movie_poster.url }}"
+                            alt="{{ movie.title }} by {{ movie.director }} movie listing"
+                          />
+                          {% endif %}
+                        </div>
+                      </div>
+                      <div class="col-7 d-flex align-items-center">
+                        <p class="f-small card-text">
+                          {{movie.synopsis|truncatewords:40}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              {% if forloop.counter|divisibleby:8 %}
+            </div>
+            <div class="row">
+              {% endif %} {% endif %} {% empty %}
+              <h2 class="text-center">No movies in this genre added yet</h2>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+              <a
+                href="?page={{ page_obj.previous_page_number }}"
+                class="page-link"
+                >&laquo; PREV
+              </a>
+            </li>
+            {% endif %} {% if page_obj.has_next %}
+            <li>
+              <a href="?page={{ page_obj.next_page_number }}" class="page-link">
+                NEXT &raquo;</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--More Genres section-->
+<section id="more-genres" class="pb-5 pt-5">
+  <h3 class="text-center">More Genres</h3>
+  <!--Owl Carousel https://owlcarousel2.github.io/OwlCarousel2/-->
+  <div class="owl-carousel owl-theme">
+    {% for value in genre_object %}
+    <div class="item">
+      <div class="card h-100 genre-card">
+        <div class="card-body p-0">
+          <a href="{% url 'genre_detail' value.slug %}">
+            <div
+              class="p-0 card-header genre-card-title d-flex align-items-center justify-content-center"
+            >
+              <h4 class="m-0 f-medium p-bold card-title text-center">
+                {{ value.genre_name }}
+              </h4>
+            </div>
+            <img
+              class="card-img genre-card-img"
+              src=" {{ value.genre_image.url }} "
+              alt="image associated with {{ genre.genre.name }}"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %} {% block script %}
+<!-- Script for owl carousel initilisation and settings-->
+<script>
+  $(".owl-carousel").owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    dots: false,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      300: {
+        items: 3,
+      },
+      600: {
+        items: 5,
+      },
+      1000: {
+        items: 7,
+      },
+    },
+  });
+</script>
+{% endblock %}
