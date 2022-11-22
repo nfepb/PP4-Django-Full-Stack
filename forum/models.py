@@ -17,6 +17,7 @@ class Movie(models.Model):
     year_released = models.DateField()
     synopsis = models.TextField()
     movie_poster = CloudinaryField('image', default='placeholder')
+    movie_approved = models.BooleanField(default=False)
     movie_created_on = models.DateTimeField(auto_now_add=True)
     movie_updated_on = models.DateTimeField(auto_now=True)
     in_watchlists = models.ManyToManyField(
